@@ -1,8 +1,9 @@
-package main
+//package main
 
 import (
 	"errors"
 	"fmt"
+	"reflect"
 	"sync"
 	"time"
 )
@@ -393,14 +394,27 @@ make 函数和上一小节中自定义的 NewPerson 函数很像？其实 make �
 
 > 即，make函数更加强大，除了分配内存（new）之外，还初始化了对应的内容，一般用于map、chan、slice
 
-
-二〇二四年四月二十四日：看到了：https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/22%20%e8%ae%b2%e9%80%9a%e5%85%b3%20Go%20%e8%af%ad%e8%a8%80-%e5%ae%8c/15%20%20%e8%bf%90%e8%a1%8c%e6%97%b6%e5%8f%8d%e5%b0%84%ef%bc%9a%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%92%8c%e7%bb%93%e6%9e%84%e4%bd%93%e4%b9%8b%e9%97%b4%e5%a6%82%e4%bd%95%e8%bd%ac%e6%8d%a2%ef%bc%9f.md
 */
+
+type person struct {
+
+	Name string `json:"name" bson:"b_name"`
+
+	Age int `json:"age" bson:"b_name"`
+
+}
+
 
 func main() {
 	//fun11()
 	//testMyErrorFunc()
 	//fun12()
 	//switchAndChannel()
-	race()
+	//race()
+	ss:=[]string{"a","b","c"}
+	fmt.Println(ss)
+	fmt.Println(reflect.TypeOf(ss))
+	ss = append(ss,"d","f")
+	fmt.Println(reflect.TypeOf(ss))
+
 }
